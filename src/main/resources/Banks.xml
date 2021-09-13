@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<banks xmlns:xsi="http://www.example.org/Banks"
+          xsi:schemaLocation="http://www.example.org/Banks Banks.xsd">
+    <bank id="ID_1" country="TKM &quot;Туркменистан&quot;" deposit_type="накопительный">
+        <name>Народный Банк</name>
+        <timeConstraints>2021-09-01T:08:00:00</timeConstraints>
+        <depositor>Кейли Смит</depositor>
+        <profitability></profitability>
+
+
+    </bank>
+
+</banks>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.example.org/Banks"
+        xmlns:tns="http://www.example.org/Banks"
+        elementFormDefault="qualified">
+    <element name="bank" type="tns:Bank"></element>
+    <element name="candies">
+        <complexType>
+            <sequence minOccurs="1" maxOccurs="unbounded">
+                <element ref="tns:bank"/>
+            </sequence>
+        </complexType>
+    </element>
+    <complexType name="Bank">
+        <sequence>
+            <element name="name" type="string"/>
+            <element name="timeConstraints" type="dateTime"/>
+            <element name="depositor" type="string"/>
+            <element name="profitability" type="float"/>
+            <element name="accountId" type="string"/>
+            <element name="amountOnDeposit" type="float"/>
+        </sequence>
+        <attribute name="id" type="ID" use="required"/>
+        <attribute name="country" use="optional">
+            <simpleType>
+                <restriction base="string">
+                  <pattern value="[А-Яа-яA-Za-z\-\s]+ &quot;[А-Яа-я0-9A-Za-z\-\.\s]{2,}&quot;" />
+                </restriction>
+            </simpleType>
+        </attribute>
+        <attribute name="deposit_type" use="optional" default="накопительный">
+            <simpleType>
+                <restriction base="string">
+                    <enumeration value="накопительный" />
+                    <enumeration value="до востребования" />
+                    <enumeration value="рассчетный" />
+                    <enumeration value="срочный" />
+                    <enumeration value="сберегательный" />
+                    <enumeration value="металический" />
+                </restriction>
+            </simpleType>
+
+        </attribute>
+    </complexType>
+</schema>
